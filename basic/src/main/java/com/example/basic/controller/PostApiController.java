@@ -15,5 +15,5 @@ public class PostApiController {
     @PostMapping("/post")
     public void post(@RequestBody PostRequest requestData) {
         System.out.println(requestData);
-    };
+    }
 }
