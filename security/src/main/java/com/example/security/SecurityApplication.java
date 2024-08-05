@@ -28,4 +28,24 @@ public class SecurityApplication {
 	// - application.yaml에 설정하고 로그인하기
 	// - UserDetailService를 이용하기
 	// - WebSecurityConfigurerAdpapter를 사용하기 --> Spring Security 5.7부터는 사용버이 달라져 공식문서를 확인해보아야함.
+
+	// ====================================================================================================
+
+	// 로그인 하기
+	// - 스프링 프레임워크에서 로그인을 한다는 것은 authenticated가 true인 Authentication 객체를 SecurituContext에 갖고 있는 상태를 말한다.
+	//   단, Authentication이 AnonymousAuthenticationToken만 아니면 된다.
+	// - 로그인 == Authentication(authenticated = true) only if Authentication != AnonymousAuthenticationToken
+
+	// Authentication(인증)의 기본 구조
+	// - 필터들 중에 일부 필터는 인증 정보에 관여한다. 이들 필터가 하는 일은 AuthenticationManager를 통해 Authentication을 인증하고 그 결과를 SecurityContextHolder에 넣어주는 것이다.
+
+	// 인증 토큰(Authentication)을 제공하는 필터들
+	// - UsernamePasswordAuthenticationFilter: 폼 로그인
+	// - RememberMeAuthenticationFilter: remember-me 쿠키 로그인
+	// - AnonymousAuthenticationFilter: 로그인하지 않았다는 것을 인증함
+	// - SecurityContextPersistenceFilter: 기존 로그인을 유지함(기본적으로 session을 이용함)
+	// - BearerTokenAuthenticationFilter: JWT 로그인
+	// - BasicAuthenticationFilter: ajax 로그인
+	// - OAuth2LoginAuthenticationFilter: 소셜 로그인
+	// - OpenIDAuthenticationFilter: OpenID 로그인
 }
